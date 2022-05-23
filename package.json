@@ -20,5 +20,12 @@
   "bugs": {
     "url": "https://github.com/andrewdelamare/fake-hotel-be/issues"
   },
-  "homepage": "https://github.com/andrewdelamare/fake-hotel-be#readme"
+  "homepage": "https://github.com/andrewdelamare/fake-hotel-be#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "mongoose": "^6.3.4"
+  }
 }
