@@ -3,7 +3,7 @@ Back End for Fake Hotel
 Express
 Mongoose
 
-This backend handles:
+This backend handles
   -Room bookings
 Later will handle
   -Users 
@@ -16,6 +16,6 @@ Methods:
   .post(/room/book) -> book room
 
 Schemas:
-  booking -> room id, dates array, user id, id
-  room -> size number, beds number, description string, bookings array, id
+  booking -> room id, dates array, user id (later) , id
+  room ->  name string, maxOccupants number, beds number, description string, bookings array, id
   
