@@ -4,6 +4,8 @@
   "description": "back end for fake hotel website",
   "main": "index.js",
   "scripts": {
+    "start": "NODE_ENV=production node index.js",
+    "dev": "NODE_ENV=development nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -25,6 +27,7 @@
     "nodemon": "^2.0.16"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^16.0.1",
     "mongoose": "^6.3.4"
   }
