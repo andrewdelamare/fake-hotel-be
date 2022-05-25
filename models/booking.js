@@ -1,15 +1,12 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const bookingSchema = new Schema({
   name: String,
-  people: String,
+  people: Number,
   nights: Number,
-  dates: [Date],
-  roomId: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Room"
-  },
+  dates: [String],
+  roomId: String,
 });
 
 bookingSchema.set("toJSON", {
@@ -20,4 +17,6 @@ bookingSchema.set("toJSON", {
   },
 });
 
-const Booking = mongoose.model('Booking', bookingSchema);
+Booking = mongoose.model('Booking', bookingSchema);
+
+module.exports = Booking

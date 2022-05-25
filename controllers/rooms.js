@@ -1,7 +1,3 @@
-//.get(/rooms) -> rooms 
-//.get(/room) -> room
-//.post(/room/book) -> book room
-
 const express = require('express');
 const Room = require('../models/room');
 const roomRouter = express.Router();
