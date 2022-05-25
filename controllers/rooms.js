@@ -2,11 +2,24 @@
 //.get(/room) -> room
 //.post(/room/book) -> book room
 
-import express from 'express';
-import { Room } from '../models/room';
-export const roomRouter = express.Router();
+const express = require('express');
+const Room = require('../models/room');
+const roomRouter = express.Router();
 
-router.get('/rooms', async (req, res) => {
+roomRouter.get('/rooms', async (req, res) => {
   const rooms = await Room.find({});
   res.json(rooms) 
 })
+
+roomRouter.post('/rooms', async (req, res) => {
+  const room = new Room({
+    name: req.body.name,
+    description: req.body.description,
+    maxOccupants: req.body.maxOccupants,
+    beds: req.body.beds,
+  });
+  const result = await room.save();
+  return res.status(201).json(result); 
+})
+
+module.exports = roomRouter;
