@@ -1,21 +1,10 @@
-Back End for Fake Hotel
-
-Express
-Mongoose
+# Back End for Fake Hotel
 
 This backend handles
-  -Room bookings
-Later will handle
-  -Users 
+- Room bookings
+- Room cancelations
 
-Methods:
-  .get(/bookings/month) -> bookings by month
-  .get(/bookings/month/room) -> bookings by month for room
-  .get(/rooms) -> rooms 
-  .get(/room) -> room
-  .post(/room/book) -> book room
-
-Schemas:
-  booking -> room id, dates array, user id (later) , id
-  room ->  name string, maxOccupants number, beds number, description string, bookings array, id
-  
+Later it will handle
+- User creation & deletion 
+- Secure login 
+- Restrict bookings and cancelations to logged in users
