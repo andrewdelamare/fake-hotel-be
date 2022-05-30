@@ -18,4 +18,17 @@ roomRouter.post('/rooms', async (req, res) => {
   return res.status(201).json(result); 
 })
 
+roomRouter.put('/rooms/:id', async (req, res) => {
+  const id = {_id: req.params.id}
+  const body = req.body
+  await Room.findOneAndUpdate(id, body);
+  return res.status(204).json(req.body); 
+})
+
+roomRouter.delete('/rooms/:id', async (req, res) => {
+  const id = req.params.id
+  await Room.findByIdAndDelete(id);
+  return res.status(204).json(req.body); 
+})
+
 module.exports = roomRouter;

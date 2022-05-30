@@ -22,8 +22,13 @@ bookingRouter.post('/bookings', async (req, res) => {
 bookingRouter.put('/bookings/:id', async (req, res) => {
   const id = {_id: req.params.id}
   const body = req.body
-  console.log(body)
   await Booking.findOneAndUpdate(id, body);
+  return res.status(204).json(req.body); 
+})
+
+bookingRouter.delete('/bookings/:id', async (req, res) => {
+  const id = req.params.id
+  await Booking.findByIdAndDelete(id);
   return res.status(204).json(req.body); 
 })
 

@@ -75,6 +75,14 @@ test('booking updated', async () => {
   expect(response.status).toBe(204);
 }, 10000);
 
+test('booking deleted', async () => {
+  const body = {}
+  const response = await api.delete('/bookings/628f5ac53794dcb51e648a08').send(body);
+  expect(response.status).toBe(204);
+  const updated = await api.get('/bookings');
+  expect(updated.body).toHaveLength(3)
+}, 10000);
+
 afterAll(() => {
   mongoose.connection.close()
 })
