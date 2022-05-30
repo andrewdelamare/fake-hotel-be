@@ -1,12 +1,20 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
+//Status options:
+// -Reserved
+// -Paid
+// -CheckedIn
+// -CheckedOut
+// -Canceled 
+
 const bookingSchema = new Schema({
   name: String,
   people: Number,
   nights: Number,
   dates: [String],
   roomId: String,
+  status: String,
 });
 
 bookingSchema.set("toJSON", {

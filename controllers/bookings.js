@@ -14,6 +14,7 @@ bookingRouter.post('/bookings', async (req, res) => {
     nights: req.body.nights,
     dates: req.body.dates,
     roomId: req.body.roomId,
+    status: req.body.status,
   });
   const result = await booking.save();
   return res.status(201).json(result); 

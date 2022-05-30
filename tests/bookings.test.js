@@ -17,6 +17,7 @@ const initialBookings = [
         "2022-05-26T21:00:00.000Z",
         "2022-05-27T21:00:00.000Z"
     ],
+    status: "CheckedOut",
     roomId: "628dea266a640412fa02be1d",
 },
 {
@@ -27,6 +28,7 @@ const initialBookings = [
   dates: [
       "2022-05-28T21:00:00.000Z",
   ],
+  status: "CheckedIn",
   roomId: "628dea266a640412fa02be1d",
 },
 {
@@ -38,6 +40,7 @@ const initialBookings = [
       "2022-05-29T21:00:00.000Z",
       "2022-05-30T21:00:00.000Z"
   ],
+  status: "Paid",
   roomId: "628dea266a640412fa02be1d",
 },
 {
@@ -48,6 +51,7 @@ const initialBookings = [
   dates: [
       "2022-05-31T21:00:00.000Z",
   ],
+  status: "Reserved",
   roomId: "628dea266a640412fa02be1d",
 },
 ]
