@@ -7,7 +7,6 @@ const Booking = require("../models/booking");
 const api = supertest(app);
 
 const initialBookings = [
-
   {
     _id: "628f5ac53794dcb51e648a04",
     name: "Fakely Personson",
@@ -19,42 +18,53 @@ const initialBookings = [
     ],
     status: "CheckedOut",
     roomId: "628dea266a640412fa02be1d",
-},
-{
-  _id: "628f5ac53794dcb51e648a06",
-  name: "Unknowen Wherdhebe",
-  people: 2,
-  nights: 1,
-  dates: [
-      "2022-05-28T21:00:00.000Z",
-  ],
-  status: "CheckedIn",
-  roomId: "628dea266a640412fa02be1d",
-},
-{
-  _id: "628f5ac53794dcb51e648a08",
-  name: "Whoen MacFakley",
-  people: 2,
-  nights: 2,
-  dates: [
-      "2022-05-29T21:00:00.000Z",
-      "2022-05-30T21:00:00.000Z"
-  ],
-  status: "Paid",
-  roomId: "628dea266a640412fa02be1d",
-},
-{
-  _id: "628f5ac53794dcb51e648a0a",
-  name: "Nowen Smith",
+  },
+  {
+    _id: "628f5ac53794dcb51e648a06",
+    name: "Unknowen Wherdhebe",
+    people: 2,
+    nights: 1,
+    dates: [
+        "2022-05-28T21:00:00.000Z",
+    ],
+    status: "CheckedIn",
+    roomId: "628dea266a640412fa02be1d",
+  },
+  {
+    _id: "628f5ac53794dcb51e648a08",
+    name: "Whoen MacFakley",
+    people: 2,
+    nights: 2,
+    dates: [
+        "2022-05-29T21:00:00.000Z",
+        "2022-05-30T21:00:00.000Z"
+    ],
+    status: "Paid",
+    roomId: "628dea266a640412fa02be1d",
+  },
+  {
+    _id: "628f5ac53794dcb51e648a0a",
+    name: "Nowen Smith",
+    people: 4,
+    nights: 1,
+    dates: [
+        "2022-05-31T21:00:00.000Z",
+    ],
+    status: "Reserved",
+    roomId: "628dea266a640412fa02be1d",
+  },
+];
+
+const newBooking = {
+  name: "Pamela Poovy",
   people: 4,
   nights: 1,
   dates: [
-      "2022-05-31T21:00:00.000Z",
+      "2022-06-05T21:00:00.000Z",
   ],
   status: "Reserved",
   roomId: "628dea266a640412fa02be1d",
-},
-]
+};
 
 beforeEach(async () => {
   await Booking.deleteMany();
@@ -72,6 +82,15 @@ test('all bookings returned', async () => {
   const response = await api.get('/bookings');
   expect(response.body).toHaveLength(initialBookings.length);
 })
+
+test('booking added', async () => {
+  const body = newBooking;
+  const response = await api.post('/bookings').send(body);
+  expect(response.status).toBe(201);
+  const updated = await api.get('/bookings');
+  expect(updated.body).toHaveLength(5);
+  expect(updated.body[4].name).toBe("Pamela Poovy");
+}, 10000);
 
 test('booking updated', async () => {
   const body = {"name": "Owen McFakely"}
