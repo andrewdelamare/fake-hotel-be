@@ -21,9 +21,9 @@ bookingRouter.post('/bookings', async (req, res) => {
 })
 
 bookingRouter.put('/bookings/:id', async (req, res) => {
-  const id = {_id: req.params.id}
-  const body = req.body
-  await Booking.findOneAndUpdate(id, body);
+  const id = req.params.id;
+  const body = req.body;
+  await Booking.findByIdAndUpdate(id, body);
   return res.status(204).json(req.body); 
 })
 
