@@ -1,5 +1,5 @@
 # Back End for Fake Hotel
-![passing tests](https://github.com/andrewdelamare/fake-hotel-be/actions/workflows/node.js.yml/badge.svg)
+[![Tests](https://github.com/andrewdelamare/fake-hotel-be/actions/workflows/node.js.yml/badge.svg)](https://github.com/andrewdelamare/fake-hotel-be/actions/workflows/node.js.yml)
 ## This backend handles
 - Room bookings
 - Room cancelations
