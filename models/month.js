@@ -1,15 +1,14 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
-const roomSchema = new Schema({
+const monthSchema = new Schema({
   name: String,
-  description: String,
-  maxOccupants: Number,
-  beds: Number,
+  name_lower: String,
+  year: Number,
   bookings: [String],
 });
 
-roomSchema.set("toJSON", {
+monthSchema.set("toJSON", {
   transform: (document, returnedObject) => {
     returnedObject.id = returnedObject._id.toString();
     delete returnedObject._id;
@@ -17,6 +16,6 @@ roomSchema.set("toJSON", {
   },
 });
 
-Room = mongoose.model('Room', roomSchema);
+Month = mongoose.model('Month', monthSchema);
 
-module.exports = Room
+module.exports = Month
