@@ -21,7 +21,6 @@
    (the url of your mongodb cluster) 
    ````
    MONGODB_URI="mongodb://[username:password@]host1[:port1][,...hostN[:portN]][/[defaultauthdb][?options]]" 
-   
    ````
    (the url of your mongodb cluster for testing)  
    ````
