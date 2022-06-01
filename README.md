@@ -10,6 +10,34 @@
 - Restrict bookings and cancelations to logged in users
 
 ---
+## Want to run it locally?
+1. Clone fake-hotel-be
+2. Create .env file and assign values to:  
+
+   (the port you want to run the server on)
+   ````
+   PORT=3003 
+   ````
+   (the url of your mongodb cluster) 
+   ````
+   MONGODB_URI="mongodb://[username:password@]host1[:port1][,...hostN[:portN]][/[defaultauthdb][?options]]" 
+   
+   ````
+   (the url of your mongodb cluster for testing)  
+   ````
+   TEST_URI="mongodb://[username:password@]host1[:port1][,...hostN[:portN]][/[defaultauthdb][?options]]"
+   ````   
+3. Inside fake-hotel-be run:
+   ````
+   npm install
+   npm run
+   ````
+
+   If you want to test your clone, simply run: 
+   ````
+   npm test
+   ````
+***
 ## Document Schemas
 ### Booking
 ```javascript
