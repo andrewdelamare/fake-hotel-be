@@ -9,12 +9,12 @@ bookingRouter.get("/bookings", async (req, res) => {
 
 bookingRouter.post("/bookings", async (req, res) => {
   const booking = new Booking({
-    name: req.body.name,
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
     people: req.body.people,
     nights: req.body.nights,
     dates: req.body.dates,
     roomId: req.body.roomId,
-    status: req.body.status,
   });
   const result = await booking.save();
   return res.status(201).json(result);
