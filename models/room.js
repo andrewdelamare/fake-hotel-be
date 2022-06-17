@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const roomSchema = new Schema({
@@ -17,6 +17,6 @@ roomSchema.set("toJSON", {
   },
 });
 
-Room = mongoose.model('Room', roomSchema);
+Room = mongoose.model("Room", roomSchema);
 
-module.exports = Room
+module.exports = Room;

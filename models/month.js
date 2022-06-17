@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const monthSchema = new Schema({
@@ -16,6 +16,6 @@ monthSchema.set("toJSON", {
   },
 });
 
-Month = mongoose.model('Month', monthSchema);
+Month = mongoose.model("Month", monthSchema);
 
-module.exports = Month
+module.exports = Month;

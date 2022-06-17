@@ -1,13 +1,13 @@
-const express = require('express');
-const Booking = require('../models/booking');
+const express = require("express");
+const Booking = require("../models/booking");
 const bookingRouter = express.Router();
 
-bookingRouter.get('/bookings', async (req, res) => {
+bookingRouter.get("/bookings", async (req, res) => {
   const bookings = await Booking.find({});
-  res.json(bookings) 
-})
+  res.json(bookings);
+});
 
-bookingRouter.post('/bookings', async (req, res) => {
+bookingRouter.post("/bookings", async (req, res) => {
   const booking = new Booking({
     name: req.body.name,
     people: req.body.people,
@@ -17,20 +17,20 @@ bookingRouter.post('/bookings', async (req, res) => {
     status: req.body.status,
   });
   const result = await booking.save();
-  return res.status(201).json(result); 
-})
+  return res.status(201).json(result);
+});
 
-bookingRouter.put('/bookings/:id', async (req, res) => {
+bookingRouter.put("/bookings/:id", async (req, res) => {
   const id = req.params.id;
   const body = req.body;
   await Booking.findByIdAndUpdate(id, body);
-  return res.status(204).json(req.body); 
-})
+  return res.status(204).json(req.body);
+});
 
-bookingRouter.delete('/bookings/:id', async (req, res) => {
-  const id = req.params.id
+bookingRouter.delete("/bookings/:id", async (req, res) => {
+  const id = req.params.id;
   await Booking.findByIdAndDelete(id);
-  return res.status(204).json(req.body); 
-})
+  return res.status(204).json(req.body);
+});
 
 module.exports = bookingRouter;

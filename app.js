@@ -10,7 +10,7 @@ const app = express();
 
 mongoose.connect(config.MONGODB_URI);
 app.use(cors());
-app.use(express.json())
+app.use(express.json());
 
 app.use(roomRouter);
 app.use(bookingRouter);
