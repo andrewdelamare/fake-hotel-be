@@ -6,7 +6,7 @@ const roomSchema = new Schema({
   description: String,
   maxOccupants: Number,
   beds: Number,
-  bookings: [String],
+  bookings: [],
 });
 
 roomSchema.set("toJSON", {

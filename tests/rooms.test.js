@@ -96,7 +96,7 @@ test("room deleted", async () => {
     .delete("/rooms/62910b0acb70612be56c67a2")
     .send(body);
   expect(response.status).toBe(204);
-  const updated = await api.get("/bookings");
+  const updated = await api.get("/rooms");
   expect(updated.body).toHaveLength(3);
 }, 10000);
 
