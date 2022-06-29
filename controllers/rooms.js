@@ -7,6 +7,12 @@ roomRouter.get("/rooms", async (req, res) => {
   res.json(rooms);
 });
 
+roomRouter.get("/rooms/:id", async (req, res) => {
+  const id = { _id: req.params.id };
+  const room = await Room.findById(id);
+  res.json(room);
+});
+
 roomRouter.post("/rooms", async (req, res) => {
   const room = new Room({
     name: req.body.name,
