@@ -28,8 +28,8 @@ roomRouter.put("/rooms/:id", async (req, res) => {
 roomRouter.put("/rooms/:id/booking", async (req, res) => {
   const id = { _id: req.params.id };
   const body = req.body;
-  await Room.findOneAndUpdate(id, body);
-  return res.status(204).json(req.body);
+  const result = await Room.findOneAndUpdate(id, body);
+  return res.status(204).json(result);
 });
 
 roomRouter.delete("/rooms/:id", async (req, res) => {
